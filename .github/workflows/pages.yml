@@ -29,12 +29,12 @@ jobs:
       - name: Production build
         run: npm run build
       - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/personal-digital-portal'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/personal-digital-portal'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
