@@ -1,0 +1,5 @@
+<script setup lang="ts">
+import { ArrowUpRight } from 'lucide-vue-next'
+defineProps<{project:{slug:string,number:string,title:string,category:string,desc:string,tags:string[],color:string,status:string}}>()
+</script>
+<template><RouterLink :to="'/projects/'+project.slug" class="project-card" :class="'project-'+project.color"><div class="project-card-top"><span>{{project.category}}</span><span class="project-index">{{project.number}} / 03</span></div><div class="project-visual"><div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div><div class="visual-core"><span>{{project.number}}</span></div><span class="visual-cross cross-a">+</span><span class="visual-cross cross-b">+</span></div><div class="project-info"><div><span class="project-status">{{project.status}}</span><h3>{{project.title}}</h3><p>{{project.desc}}</p></div><span class="round-arrow"><ArrowUpRight :size="19"/></span></div><div class="tag-row"><span v-for="tag in project.tags" :key="tag">{{tag}}</span></div></RouterLink></template>
