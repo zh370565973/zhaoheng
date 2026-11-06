@@ -1,2 +1,2 @@
-<script setup lang="ts">defineProps<{eyebrow:string,title:string,desc?:string,number?:string}>()</script>
+<script setup lang="ts">defineProps<{eyebrow:string,title:string,desc?:string,number?:string}>();</script>
 <template><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span>{{eyebrow}}</div><h2>{{title}}</h2><p v-if="desc">{{desc}}</p></div><span v-if="number" class="section-number">{{number}}</span></div></template>
