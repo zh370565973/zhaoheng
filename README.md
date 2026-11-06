@@ -1,39 +1,50 @@
-# 赵恒 · 个人简介（示例）
+# ZH / SPACE — 个人数字门户
 
-这是一个用于体验 GitHub Pages 的示例静态网站，不是正式个人站点。页面上的自我介绍和技能标签都是占位文案，方便之后替换。
+一个以暗黑科技风为基调的个人数字门户，使用 Vue 3、TypeScript、Vite、Tailwind CSS v4 与 Three.js 构建。
 
-预期访问地址：<https://zh370565973.github.io/zhaoheng/>
+## 功能页面
+- 首页：数字星球 3D Hero、项目精选、AI 实验室入口、资源导航与动态记录
+- 关于我：个人介绍与关注方向
+- 项目：项目列表与独立项目档案
+- AI 实验室：模型、工作流、AI 视频创作方向
+- 资源导航：可搜索的技术工具与官方入口
+- 作品集：视觉实验展示位
+- 动态笔记、联系页面
 
-## 本地预览
+## 技术栈
+Vue 3 / TypeScript / Vite / Tailwind CSS v4 / Three.js / Vue Router / GSAP-ready motion design / Lucide Vue Next。
 
-用浏览器直接打开根目录的 `index.html`，或在仓库根目录启动任意静态服务器。样式与图标放在 `assets/` 下，页面使用相对路径（例如 `assets/style.css`），这样在项目站点路径 `/zhaoheng/` 下也能正确加载。
+## 本地运行
+```bash
+npm install
+npm run dev
+```
 
-## 发布到 GitHub Pages
+生产构建与类型检查：
+```bash
+npm run typecheck
+npm run build
+npm run preview
+```
 
-### 方式一：GitHub Actions（仓库已附工作流）
+## GitHub Pages
+Vite 的项目站点路径已设置为 `/zhaoheng/`，路由采用 Hash History，避免 GitHub Pages 刷新子路由出现 404。GitHub Actions 会在功能分支执行构建检查，仅在 main 分支部署正式站点。
 
-`.github/workflows/pages.yml` 会在推送到 `main` 时，用 `actions/upload-pages-artifact` 打包根目录静态文件，再用 `actions/deploy-pages` 发布。
+预期地址：<https://zh370565973.github.io/zhaoheng/>
 
-首次使用需要你在网页上点一次设置（Actions 无法代为打开这个开关）：
+首次发布前，请在仓库 Settings → Pages → Build and deployment 中将 Source 设为 GitHub Actions。
 
-1. 打开仓库 **Settings → Pages**。
-2. 在 **Build and deployment** 里，将 **Source** 选为 **GitHub Actions**。
-3. 保存后，到 **Actions** 查看 “Deploy static content to Pages” 是否成功。
+## 内容维护
+个人介绍、项目、资源、AI 工具、作品与动态集中在 `src/data/site.ts`。目前项目条目与作品卡片为可替换的展示内容；没有填写未经确认的职业履历、邮箱或电话。
 
-如果 Pages 尚未启用，工作流可能失败。完成上面的设置后，在 Actions 页面重新运行该工作流即可。合并到 `main` 的后续提交会自动再次发布。
-
-### 方式二：从分支部署
-
-也可以不走 Actions：
-
-1. 打开 **Settings → Pages**。
-2. **Source** 选择 **Deploy from a branch**。
-3. **Branch** 选择 `main`，文件夹选择 `/ (root)`，然后保存。
-
-仓库根目录有 `.nojekyll`，从分支部署时会跳过 Jekyll 处理。发布完成后同样访问 <https://zh370565973.github.io/zhaoheng/>。
-
-两种方式选一种即可。若已把 Source 设为 GitHub Actions，就以工作流发布为准。
-
-## 修改内容
-
-直接编辑 `index.html` 里的简介、技能标签和链接，提交并推送到 `main`。联系方式目前只放了公开的 GitHub 主页：<https://github.com/zh370565973>。
+## 目录概览
+```
+src/
+  assets/styles/main.css
+  components/       # 导航、页脚、项目卡片、3D 星球
+  data/site.ts      # 可维护的站点内容
+  router/           # 页面路由
+  views/            # Home / About / Projects / AI Lab / Resources / Gallery / Notes / Contact
+  App.vue
+  main.ts
+```
